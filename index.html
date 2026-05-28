@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Undangan Digital</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#fdf8f5;
+      overflow-x:hidden;
+      color:#444;
+    }
+
+    /* OPENING */
+    .opening{
+      width:100%;
+      height:100vh;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:999;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+
+      background:
+      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url('galeri30.jpeg');
+
+      background-size:cover;
+      background-position:center;
+
+      color:white;
+      transition:1s;
+    }
+
+    .opening.hide{
+      opacity:0;
+      visibility:hidden;
+    }
+
+    .opening h4{
+      letter-spacing:4px;
+      margin-bottom:20px;
+      font-weight:300;
+    }
+
+    .opening h1{
+      font-family:'Great Vibes',cursive;
+      font-size:70px;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+
+    .opening p{
+      margin-bottom:15px;
+    }
+
+    .btn-open{
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      background:#6E0F1F;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:20px;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:30px;
+
+      background:
+      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url('galeri30.jpeg');
+
+      background-size:cover;
+      background-position:center;
+
+      color:white;
+    }
+
+    .hero h4{
+      letter-spacing:4px;
+      margin-bottom:15px;
+      font-weight:300;
+    }
+
+    .hero h1{
+      font-family:'Great Vibes',cursive;
+      font-size:65px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:16px;
+    }
+
+    /* SECTION */
+    section{
+      padding:80px 20px;
+    }
+
+    .title{
+      text-align:center;
+      font-family:'Great Vibes',cursive;
+      font-size:55px;
+      color:#6E0F1F;
+      margin-bottom:40px;
+    }
+
+    .card{
+      background:white;
+      border-radius:30px;
+      padding:30px 20px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    /* QUOTES */
+    .quotes{  
+      text-align:center;
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    /* MEMPELAI */
+    .couple{
+      display:flex;
+      flex-direction:column;
+      gap:40px;
+      text-align:center;
+    }
+
+    .couple img{
+      width:170px;
+      height:170px;
+      object-fit:cover;
+      border-radius:50%;
+      border:5px solid #f3d4c6;
+      margin-bottom:20px;
+    }
+
+    .couple h2{
+      font-family:'Great Vibes',cursive;
+      font-size:45px;
+      color:#6E0F1F;
+      margin-bottom:10px;
+    }
+
+    /* SAVE DATE */
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+      margin-top:30px;
+    }
+
+    .time{
+      background:#6E0F1F;
+      color:white;
+      border-radius:25px;
+      text-align:center;
+      padding:25px 10px;
+    }
+
+    .time h2{
+      font-size:35px;
+    }
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:20px;
+    }
+
+    .gallery-full{
+      grid-column:1/3;
+      height:280px !important;
+    }
+
+    /* LOKASI */
+    .location{
+      text-align:center;
+    }
+
+    .maps-btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:14px 30px;
+      background:#6E0F1F;
+      color:white;
+      text-decoration:none;
+      border-radius:50px;
+    }
+
+    iframe{
+      width:100%;
+      height:250px;
+      border:none;
+      border-radius:20px;
+      margin-top:25px;
+    }
+
+    /* RSVP */
+    input,
+    textarea{
+      width:100%;
+      padding:15px;
+      border-radius:15px;
+      border:1px solid #ddd;
+      margin-bottom:20px;
+      font-family:'Poppins',sans-serif;
+    }
+
+    textarea{
+      height:120px;
+      resize:none;
+    }
+
+    .btn{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:15px;
+      background:#6E0F1F;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#6E0F1F;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+      font-size:14px;
+    }
+
+    /* MUSIC BUTTON */
+    .music-btn{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:60px;
+      height:60px;
+      border:none;
+      border-radius:50%;
+      background:#6E0F1F;
+      color:white;
+      font-size:22px;
+      z-index:99;
+      cursor:pointer;
+    }
+    .list-ucapan{
+  margin-top:30px;
+}
+
+.ucapan-item{
+  background:#fff7f2;
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:15px;
+  border:1px solid #f1d6c8;
+}
+
+.ucapan-item h4{
+  color:#6E0F1F;
+  margin-bottom:8px;
+}
+
+.ucapan-item p{
+  color:#555;
+  line-height:1.6;
+}
+.surah{
+  text-align:center;
+  margin:30px 20px;
+  color:rgb(0, 0, 0);
+}
+
+.surah .arab{
+  font-size:28px;
+  line-height:2;
+  font-family:'Amiri', serif;
+  margin-bottom:20px;
+}
+
+.surah .arti{
+  font-size:15px;
+  line-height:1.8;
+  opacity:.9;
+  margin-bottom:10px;
+}
+
+.surah h4{
+  font-size:16px;
+  letter-spacing:2px;
+  color:#6E0F1F;
+}
+
+  </style>
+</head>
+
+<body>
+
+
+<!-- OPENING -->
+<div class="opening" id="opening">
+
+  <div>
+
+    <h4>THE WEDDING OF</h4>
+
+    <h1>
+      Ahmad Aldiansyah <br>
+      & <br>
+      Pingkan Haryanti
+    </h1>
+
+    <p>Kepada Yth.</p>
+
+    <h3 id="guest">Tamu Undangan</h3>
+
+    <button class="btn-open" onclick="openInvitation()">
+      Buka Undangan
+    </button>
+
+  </div>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div data-aos="fade-up">
+
+    <h4>WE ARE GETTING MARRIED</h4>
+
+    <h1>
+      Ahmad Aldiansyah <br>
+      & <br>
+      Pingkan Haryanti
+    </h1>
+
+    <p>24 Juni 2026</p>
+
+  </div>
+
+</section>
+
+<!-- QUOTES -->
+<section>
+
+  <h2 class="title" data-aos="fade-up">
+    Assalamu’alaikum
+  </h2>
+
+  <div class="card quotes" data-aos="fade-up">
+
+    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.
+
+  </div>
+  <div class="surah">
+  <p class="arab">
+    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+  </p>
+
+  <p class="arti">
+    “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapat ketenangan hati dan dijadikan-Nya kasih sayang di antara kamu.”
+  </p>
+
+  <h4>QS. Ar-Rum Ayat 21</h4>
+</div>
+
+</section>
+
+<!-- MEMPELAI -->
+<section>
+
+  <h2 class="title" data-aos="fade-up">
+    Mempelai
+  </h2>
+
+  <div class="card">
+
+    <div class="couple">
+
+      <div data-aos="fade-right">
+
+        <img src="ahmadaldiansyah.jpeg">
+
+        <h2>Ahmad Aldiansyah</h2>
+
+        <p>Putra Pertama dari</p>
+
+        <p>Bapak Ahmad & Ibu Siti</p>
+
+      </div>
+
+      <div data-aos="fade-left">
+
+        <img src="pingkanharyanti.jpeg">
+
+        <h2>Pingkan Haryanti</h2>
+
+        <p>Putri Kedua dari</p>
+
+        <p>Bapak Haryanto & Ibu Rina</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SAVE THE DATE -->
+<section>
+
+  <h2 class="title" data-aos="fade-up">
+    Akad Nikah
+  </h2>
+
+  <div class="card">
+
+    <p style="text-align:center;">
+      Rabu, 24 Juni 2026
+    </p>
+
+    <div class="countdown">
+
+      <div class="time">
+        <h2 id="days">0</h2>
+        <p>Hari</p>
+      </div>
+
+      <div class="time">
+        <h2 id="hours">0</h2>
+        <p>Jam</p>
+      </div>
+
+      <div class="time">
+        <h2 id="minutes">0</h2>
+        <p>Menit</p>
+      </div>
+
+      <div class="time">
+        <h2 id="seconds">0</h2>
+        <p>Detik</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+<section>
+
+  <h2 class="title" data-aos="fade-up">
+    Gallery
+  </h2>
+
+  <div class="gallery">
+
+    <img src="ahmadaldiansyah.jpeg">
+    <img src="galeri40.jpeg">
+
+    <img class="gallery-full" src="galeri20b.jpg">
+
+    <img src="pingkanharyanti.jpeg">
+    <img src="galeri30.jpeg">
+
+  </div>
+
+</section>
+
+<!-- LOKASI -->
+<section>
+
+  <h2 class="title" data-aos="fade-up">
+    Lokasi
+  </h2>
+
+  <div class="card location">
+
+    <h3>📍 Kediaman Mempelai Wanita</h3>
+
+    <p>
+      Dusun Jamantri III RT 013/004 <br>
+      Desa Sabajaya, Kecamatan Tirtajaya, Kabupaten Karawang, Jawa Barat 
+    </p>
+
+    <a href="https://maps.app.goo.gl/EKKwsf1YbSR11p8TA" target="_blank" class="maps-btn">
+      Buka Google Maps
+    </a>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1511.082046638156!2d107.24645540769887!3d-6.055067578602642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a2b75a528a739%3A0x8ed278eec4360a35!2sSate%20Madura%20Cak%20Romli%20Dan%20Bubur%20Kacang%20Ijo!5e1!3m2!1sid!2sid!4v1779907458505!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  </div>
+
+</section>
+
+<!-- RSVP -->
+<!-- UCAPAN -->
+<section id="ucapan">
+
+  <h2 class="title" data-aos="fade-up">
+    Ucapan
+  </h2>
+
+  <div class="card" data-aos="fade-up">
+
+    <form onsubmit="kirimUcapan(event)">
+
+      <input 
+      type="text" 
+      id="namaUcapan"
+      placeholder="Nama">
+
+      <textarea 
+      id="isiUcapan"
+      placeholder="Tulis ucapan terbaik..."></textarea>
+
+      <button type="submit" class="btn">
+        Kirim Ucapan
+      </button>
+
+    </form>
+
+    <!-- HASIL UCAPAN -->
+    <div id="listUcapan" class="list-ucapan">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- UCAPAN -->
+<section>
+
+  <h2 class="title">
+    Ucapan
+  </h2>
+
+  <div class="card" id="listUcapan">
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  © 2026 Married Ahmad Aldiansyah & Pingkan Haryanti <br><br>
+
+  Design & build a Website By Ahmad Paridi S.Kom(c)
+
+</footer>
+
+<!-- MUSIC -->
+<audio id="music" loop preload="auto" playsinline>
+  <source src="instrument.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+  🎵
+</button>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+  duration:1200
+});
+
+const music = document.getElementById("music");
+
+function openInvitation(){
+  document.getElementById("opening").classList.add("hide");
+  music.muted = false;
+  const playPromise = music.play();
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        console.log("Music berjalan");
+      })
+      .catch((error) => {
+        console.log("Autoplay diblok:", error);
+      });
+  }
+}
+const targetDate = new Date("June 24, 2026 08:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  document.getElementById("days").innerHTML =
+  Math.floor(distance / (1000*60*60*24));
+  document.getElementById("hours").innerHTML =
+  Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("minutes").innerHTML =
+  Math.floor((distance%(1000*60*60))/(1000*60));
+  document.getElementById("seconds").innerHTML =
+  Math.floor((distance%(1000*60))/1000);
+},1000);
+
+function kirimUcapan(event){
+  event.preventDefault();
+  const nama = document.getElementById("namaUcapan").value;
+  const pesan = document.getElementById("isiUcapan").value;
+  if(nama === "" || pesan === ""){
+    alert("Isi nama dan ucapan dulu 😊");
+    return;
+  }
+
+  const listUcapan = document.getElementById("listUcapan");
+  const div = document.createElement("div");
+  div.classList.add("ucapan-item");
+  div.innerHTML = `
+    <h4>${nama}</h4>
+    <p>${pesan}</p>
+  `;
+
+  listUcapan.prepend(div);
+  document.getElementById("namaUcapan").value = "";
+  document.getElementById("isiUcapan").value = "";
+}
+
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("to");
+if(guest){
+  document.getElementById("guest").innerHTML = guest;
+}
+
+</script>
+</body>
+</html>
